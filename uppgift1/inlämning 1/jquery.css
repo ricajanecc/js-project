@@ -1,0 +1,21 @@
+.red {
+    color:red;
+}
+
+.green {
+    color:green;
+}
+
+#upAndDown, #surprise {
+    padding: 5px;
+    text-align: center;
+    background-color:#ffe6e6 ;
+    border: solid 1px #330000;
+}
+
+#firstBox, #secondBox, #thirdBox {
+    width: 100px;
+    height: 100px;
+    background-color: #8000ff;
+}
+

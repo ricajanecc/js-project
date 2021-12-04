@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./uppgift-sju.js"></script>
+    <link rel="stylesheet" href="./uppgift-sju.css">
+    <title>Travel Booking</title>
+</head>
+
+<body>
+    <div class="formContainer">
+        <h1 class="title">Travel Booking Form</h1>
+        <form name="bookingForm" id="bookingForm">
+            <label>Name</label>
+            <input type="text" name="fname" oninput="nameValidator()">
+            <p id="nameError" class="errors"></p>
+            <label>E-mail:</label>
+            <input type="email" name="email" oninput="emailValidator()">
+            <p id="emailError" class="errors"></p>
+            <label>From</label>
+            <select id="dropdown" name="startDestination" onchange="destinationValidator()">
+                <option value="stockholm">Stockholm</option>
+                <option value="madrid">Madrid</option>
+                <option value="beijing">Beijing</option>
+                <option value="bangkok">Bangkok</option>
+                <option value="rome">Rome</option>
+            </select>
+            <label>To</label>
+            <select id="dropdown" name="mainDestination" onchange="destinationValidator()">
+                <option value="stockholm">Stockholm</option>
+                <option value="madrid">Madrid</option>
+                <option value="beijing">Beijing</option>
+                <option value="bangkok">Bangkok</option>
+                <option value="rome">Rome</option>
+            </select>
+            <p id="destinationError" class="errors"></p>
+            <label>Travel Class</label>
+            <select id="dropdown" name="travelClass">
+                <option value="firstClass">First Class</option>
+                <option value="businessClass">Business Class</option>
+                <option value="economyClass">Economy Class</option>
+            </select>
+            <label>Date of departure</label>
+            <input type="datetime-local" name="dateDeparture" oninput="dateValidator()">
+            <label>Date of arrival</label>
+            <input type="datetime-local" name="dateArrival" oninput="dateValidator()">
+            <p id="dateError" class="errors"></p>
+            <input type="submit" name="submit" class="submit">
+            <p id="formError" class="errors"></p>
+        </form>
+    </div>
+    <div class="bookingContainer" style="display: none;">
+        <h1>Booking Confirmed!</h1>
+        <p>These are the details of your booking, that will shortly be sent to your email:</p>
+        <div id="bookingInfo"></div>
+    </div>
+</body>
+
+</html>

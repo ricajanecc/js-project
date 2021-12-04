@@ -1,0 +1,63 @@
+body {
+    background-image: url(./pexels-photo-7245255.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
+.formContainer {
+    display: grid;
+    grid-auto-rows: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.bookingContainer {
+    display: grid;
+    grid-auto-rows: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+}
+
+.errors {
+    color: red;
+    font-size: 0.80rem;
+}
+
+p {
+    margin: 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=datetime-local],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.inputError {
+    border: red 1px solid;
+}
+
+.submit {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    border-color: rgb(90, 88, 88);
+    margin: 15px;   
+}

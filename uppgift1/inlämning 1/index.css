@@ -1,0 +1,13 @@
+.multiTabCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+}
+
+.multiTab {
+    display: grid;
+    background-color: black;
+    color: white;
+}
+
