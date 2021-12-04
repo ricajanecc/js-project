@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/guestbook.js"></script>
+    <link rel="stylesheet" href="/static/guestbook.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <h1>My Guest Book</h1>
+    </header>
+
+    <article class="main-container">
+    <div class="form-container">
+        <form  id="form">
+            <div class="name-container">
+                <label>First name</label> <br>
+                <input type="text" id="firstName" name="firstName" class="firstName" oninput="firstNameValid()"> 
+                <p id="firstNameError"></p>
+            </div>
+    
+            <div class="surName-container">
+            <label for="lastName">Last name</label> <br>
+            <input type="text" id="lastName" name="lastName" oninput="surnameValid()"> 
+            <p id="lastNameError"></p>
+            </div>
+    
+            <div class="email-container">
+                <label for="email">Email</label> <br>
+                <input type="email" name="email" id="email" oninput="emailValid()"> 
+                <p id="emailError"></p>
+            </div>
+    
+            <div class="telNum-container">
+                <label for="telNum">Phone number</label> <br>
+                <input type="text" name="telNum" id="telNum" oninput="phoneNumValid()"> 
+                <p id="telNumError"></p>
+            </div>
+    
+            <div id="commentSec" class="comSec-container">
+                <label for="commentText">Comment</label> <br>
+                <textarea type="" name="commentText" id="commentText"></textarea> <br><br>
+            </div>
+                <p id="formError"></p>
+                <input type="submit" name="submit" id="submit">
+            <div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="history-container">
+       
+    </div>
+    </article>
+</body>
+</html>
