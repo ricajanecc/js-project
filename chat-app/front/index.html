@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/chat.css">
+    <script src="static/chat.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="nickContainer"  style="display: none;">
+        <fieldset>
+            <legend>
+                <h1>Welcome to Chat App!</h1>
+            </legend>
+            <h3>Enter your nickname:</h3>
+            <form id="nickForm">
+                <input type="text" id="nick">
+                <input type="submit">
+            </form>
+        </fieldset>
+
+
+    </div>
+
+    <div id="chatContainer">
+        <div id="chats">
+            <div id="chatsHeader">
+                <h3>Chats</h3>
+            </div>
+        </div>
+        <div id="messageContainer">
+            <div id="messages">
+                
+            </div>
+            <form id="chatForm">
+                <input id="chatInput" autocomplete="off">
+                <input type="submit" id="submitButton" value="Send">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
