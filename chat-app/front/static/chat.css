@@ -32,18 +32,39 @@ body {
     grid-template-rows: 1fr 2em;
 }
 #messages{
-	margin: 20px;
+    padding: 20px;
     gap: 5px;
-	display: flex;
-	flex-flow: column wrap;
-    width: 100%;
-    place-self: end;
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
+    height: calc(100vh - 2em - 40px);
 }
 .bubble {
 	border-radius: 1em;
-	padding: 0.25em 0.75em;
+	padding: 10px;
 	margin: 0.0625em;
 	max-width: 50%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "author date"
+        "text text";
+    gap: 5px;
+}
+
+.bubble > .author {
+    grid-area: author;
+    font-weight: bold;
+}
+
+.bubble > .date {
+    grid-area: date;
+    justify-self: end;
+}
+
+.bubble > .text {
+    grid-area: text;
 }
 
 .bubble.sender {
@@ -57,6 +78,17 @@ body {
 	align-self: flex-end;
 	background-color: #efefef;
     border-bottom-right-radius: 0.1em;
+}
+.bubble.system {
+    align-self: center;
+    background-color: gray;
+    color: white;
+    grid-template-areas:
+    "text text"
+    "text text";
+}
+.bubble.bubble.system > .author, .bubble.system > .date {
+    display: none;
 }
 
 #chatForm{

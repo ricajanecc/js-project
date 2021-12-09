@@ -12,11 +12,12 @@ app.use("/static", express.static("../front/static"));
 app.get('/', (req,res) => {
     res.sendFile(path.resolve("../front/index.html"));
 })
-
+//runs when client connects
 io.on('connection', (socket) => {
     console.log("a user connected");
-    socket.on('disconnect', () => {
-        console.log("a user disconnected");
+    socket.emit('chat message', {text:'Welcome to the chatroom', author:null}); //when the author is null, the server knows it's from the system
+    socket.on('disconnect', () => { //stops when client disconnects
+        console.log("a user disconnected"); 
     })
 })
 
