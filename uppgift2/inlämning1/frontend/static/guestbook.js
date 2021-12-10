@@ -14,12 +14,16 @@ window.addEventListener("load", function(){
         }
     })
 }) 
-async function sendEntry() {
+
+//en funktion som skickar entry till server. 
+async function sendEntry() {  
+    //selekterar alla input från form
     const firstName = document.getElementById("firstName");
     const lastName  = document.getElementById("lastName");
     const email = document.getElementById("email");
     const telNum = document.getElementById("telNum");
     const comment = document.getElementById("commentText");
+    //konstruerar entry objekt
     const entry = {
         "first-name": firstName.value,
         "last-name": lastName.value,
@@ -27,6 +31,7 @@ async function sendEntry() {
         "phone": telNum.value,
         "comment": comment.value
     }
+    //skickar entry objekt som en json till server 
     await fetch("/entries", {
         method:"POST", 
         headers: {
@@ -34,14 +39,16 @@ async function sendEntry() {
         },
         body: JSON.stringify(entry),
     });
+    //tilldelar input till en tom sträng för att formen är tom  
     firstName.value = "";
     lastName.value = "";
     email.value = "";
     telNum.value = "";
     comment.value = "";
+    //uppdaterar entries genom att anropa denna funktion
     getEntries();
 }
-
+//validering, så att användaren anger rätt input 
 function firstNameValid() {
     let firstName = document.getElementById("firstName");
     let firstNameError = document.getElementById("firstNameError");
@@ -97,13 +104,13 @@ function phoneNumValid() {
     telNumError.innerHTML = errors;
     return errors === "";
 }
-
+//funktionen anropar server för att hämta entries och skriver ut entries till HTML 
 async function getEntries(){
-    const data = await fetch("/entries").then(data=>data.json());
-    const historyContainer = document.querySelector(".history-container");
-    historyContainer.innerHTML = "";
-    for (let i = 0; i < data.length; i++) {
-        const div = document.createElement("div");
+    const data = await fetch("/entries").then(data=>data.json()); //anropar server för att hämta entries och konverterar json till object 
+    const historyContainer = document.querySelector(".history-container"); //här skriver ut entries genom att selektera container 
+    historyContainer.innerHTML = ""; //raderar tidigare entries genom att tilldela container till en tom sträng
+    for (let i = 0; i < data.length; i++) { //loopar igenom entries 
+        const div = document.createElement("div"); //skapar en div element 
         div.innerHTML =`
     <details>
         <summary>
@@ -113,14 +120,15 @@ async function getEntries(){
         <p class="phone"></p>
         <p class="email"></p>
     </details>
-    <p class="comment"></p>`;
+    <p class="comment"></p>`; //en struktur in i elementet 
+    //sätter properties av entries in i div taggen genom att använda innerText, detta förhindrar XSS attacks
     div.querySelector(".name").innerText = data[i]["first-name"]+ " " + data[i]["last-name"];
     div.querySelector(".phone").innerText = data[i]["phone"];
     div.querySelector(".email").innerText = data[i]["email"];
     div.querySelector(".comment").innerText = data[i]["comment"];
-    div.querySelector(".date").innerText = data[i]["date"];
-    historyContainer.appendChild(div);
+    div.querySelector(".date").innerText = data[i]["date"]; 
+    historyContainer.appendChild(div); //sätter div taggen in i container
     }
 }
 
-getEntries();
+getEntries(); //hämtar entries från server, första gången den laddar 

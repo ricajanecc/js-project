@@ -86,9 +86,36 @@ body {
     grid-template-areas:
     "text text"
     "text text";
+    font-size: 0.75em;
 }
 .bubble.bubble.system > .author, .bubble.system > .date {
     display: none;
+}
+
+#users-container {
+    display: flex;
+    flex-flow: column;
+    gap:5px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#users-container > div {
+    border-radius: 1em;
+	padding: 10px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: auto 1fr auto;
+    background-color: gray;
+    color: white;
+}
+
+#users-container .ball {
+    color: greenyellow;
+}
+
+#users-container .name {
+    font-weight: bold;
 }
 
 #chatForm{
